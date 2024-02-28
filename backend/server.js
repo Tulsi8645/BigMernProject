@@ -5,7 +5,7 @@ const authRoute=require("./router/auth-router")
 const contactRoute=require("./router/contact-router")
 const connectdb=require("./utils/db");
 const errorMiddleware = require("./middlewares/error-middleware");
-const PORT=4000;
+const PORT=process.env.PORT
 //json middleware
 app.use(express.json())
 
@@ -16,10 +16,9 @@ app.use("/api/form",contactRoute);
 
 app.use(errorMiddleware)
 
-
 connectdb().then(()=>{
 app.listen(PORT,()=>{
-    console.log("server is running at port 4000")
+    console.log(`server is running at port ${PORT}`)
 });
 })
 
