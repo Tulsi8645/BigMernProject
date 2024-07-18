@@ -71,6 +71,16 @@ const login=async(req,res)=>{
 }
 
 
+//to fill the contact form automatically by getting user data--user logic
+const user=async(req,res)=>{
+    try {
+          const userData=req.user;
+          console.log(userData);
+          return res.status(200).json({userData})
+    } catch (error) {
+     console.log(`error from user route ${error}`)   
+    }
+}
 
 
 
@@ -78,5 +88,4 @@ const login=async(req,res)=>{
 
 
 
-
-module.exports={home,register,login};
+module.exports={home,register,login,user};

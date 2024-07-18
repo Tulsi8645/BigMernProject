@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "../store/auth";
 import {useNavigate} from "react-router-dom"
 
 export const Contact=()=>{
@@ -7,6 +8,19 @@ export const Contact=()=>{
         email: "",
         message:"",
       });
+
+const [userData, setUserData]=useState(true);
+
+const {user}=useAuth();
+
+if(userData && user){
+  setContact({
+  username:user.username,
+  email: user.email,
+  message:"",
+}),
+setUserData(false)
+}
 
 const navigate=useNavigate(); 
 

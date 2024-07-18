@@ -7,7 +7,7 @@ export const About=()=>{
          <br/>
          I used React as a frontend, node.js/express.js as a backend with MangoDb as a databse. 
          <br/>
-         You can easily find the code in github repo.
+      
       </p>
     </>    
     )
